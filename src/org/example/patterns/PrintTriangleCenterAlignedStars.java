@@ -1,6 +1,6 @@
 package org.example.patterns;
 
-public class PrintTriangleCenterAlignedTODO {
+public class PrintTriangleCenterAlignedStars {
     public static void main(String[] args) {
         print(5);
     }

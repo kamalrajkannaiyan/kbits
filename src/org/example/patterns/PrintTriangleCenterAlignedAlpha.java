@@ -1,6 +1,6 @@
 package org.example.patterns;
 
-public class PrintInvertedTriangleCenterAlignedAlpha {
+public class PrintTriangleCenterAlignedAlpha {
     public static void main(String[] args) {
         print(5);
     }
@@ -17,9 +17,7 @@ public class PrintInvertedTriangleCenterAlignedAlpha {
     {
         for(int row = 0; row < N; row++)
         {
-            int charsLen = 2 * row + 1;
-            int maxColSize = 2 * N - 1;
-            for (int col = 0; col < (maxColSize - charsLen)/2; col++) {
+            for (int col = 0; col < N - row - 1; col++) {
                 System.out.print("_");
             }
             char c = 'A';
@@ -34,7 +32,7 @@ public class PrintInvertedTriangleCenterAlignedAlpha {
             {
                 System.out.print((char)( c - col));
             }
-            for (int col = maxColSize; col > charsLen + (maxColSize - charsLen)/2; col--) {
+            for (int col = N - row - 1; col > 0; col--) {
                 System.out.print("_");
             }
             System.out.println();

@@ -1,8 +1,8 @@
 package org.example.patterns;
 
-public class PrintTriangleLeftAlignedNumbers {
+public class PrintTriangleLeftAlignedRIghtAlignedNumbers {
     public static void main(String[] args) {
-        print(5);
+        print(6);
     }
     private static void print(int N)
     {
@@ -11,7 +11,14 @@ public class PrintTriangleLeftAlignedNumbers {
             for (int col = 0; col <= row; col++) {
                 System.out.print(col + 1);
             }
-            System.out.println();
+            for (int col = 0; col < 2 * (N - 1 - row); col++)
+            {
+                System.out.print("_");
+            }
+            for (int col = 0; col <= row; col++) {
+                System.out.print(row - col + 1);
+            }
+            System.out.println(" >>>> Row " + row + "/"+(N-1)+" spaces "+2 * (N - 1 - row));
         }
     }
 }

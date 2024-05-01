@@ -3,7 +3,7 @@ package org.example.slidingwindow;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class ShortestSubarrayWithSumAtLeastK
+public class ShortestSubarrayWithSumAtLeastK_V1
 {
     public static void main(String[] args) {
         int[] nums = {2, 7, 3, -8, 4, 10};

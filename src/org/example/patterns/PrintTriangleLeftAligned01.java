@@ -1,6 +1,6 @@
 package org.example.patterns;
 
-public class PrintTriangleLeftAligned {
+public class PrintTriangleLeftAligned01 {
     public static void main(String[] args) {
         print(5);
     }
@@ -8,8 +8,9 @@ public class PrintTriangleLeftAligned {
     {
         for(int row = 0; row < N; row++)
         {
-            for (int col = 0; col <= row; col++) {
-                System.out.print("*");
+            for (int col = 0; col <= row; col++)
+            {
+                System.out.print(((col + 1) % 2));
             }
             System.out.println();
         }
