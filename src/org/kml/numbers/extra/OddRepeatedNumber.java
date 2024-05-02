@@ -1,4 +1,4 @@
-package numbers.extra;
+package org.kml.numbers.extra;
 
 public class OddRepeatedNumber
 {
