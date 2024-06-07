@@ -11,6 +11,8 @@ public class LongestSubarrayWithSumAtMostKWithPositiveNums {
         int len = 0, sum = 0, left = 0;
         for (int right = 0; right < nums.length; right++) {
             sum += nums[right];
+
+            //make sure window is valid
             while(sum > k)
             {
                 sum -= nums[left++];
