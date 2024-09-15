@@ -12,7 +12,7 @@ public class QuickSort {
     }
     private static void sort(int[] arr)
     {
-        sort(arr, 0, arr.length);
+        sort(arr, 0, arr.length - 1);
     }
     private static void sort(int[] arr, int low, int high)
     {
@@ -29,10 +29,10 @@ public class QuickSort {
         int end = high;
 
         while (start < end) {
-            while (arr[start] <= pivotVal && start <= high - 1) {
+            while (arr[start] <= pivotVal && start < high) {
                 start++;
             }
-            while (arr[end] > pivotVal && end >= low + 1) {
+            while (arr[end] > pivotVal && end > low) {
                 end--;
             }
             if (start < end) {
@@ -41,9 +41,8 @@ public class QuickSort {
                 arr[end] = temp;
             }
         }
-        int temp = arr[low];
         arr[low] = arr[end];
-        arr[end] = temp;
+        arr[end] = pivotVal;
         return end;
     }
 }
