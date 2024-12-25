@@ -6,7 +6,7 @@ import java.util.List;
 public class PrintAllSubsequence
 {
     public static void main(String[] args) {
-        int[] arr = {3,1,2};
+        int[] arr = {3, 1, 2};
         printAllSubsequence(arr);
     }
     private static void printAllSubsequence(int[] arr)
@@ -17,13 +17,15 @@ public class PrintAllSubsequence
     {
         if (start >= arr.length)
         {
-            System.out.println(res);
+            System.out.println("Ans - " + res);
             return;
         }
-        // do not pick
-        printAllSubsequence(start + 1, arr, res);
+
 
         // pick
         printAllSubsequence(start + 1, arr, res + arr[start]);
+
+        // do not pick
+        printAllSubsequence(start + 1, arr, res);
     }
 }

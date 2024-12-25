@@ -47,22 +47,14 @@ public class ReverseKGroupNew
     public static void main(String[] args) {
         // Create a linked list with
         // values 5, 4, 3, 7, 9 and 2
-        LinkedNode head = new LinkedNode(1);
-        head.next = new LinkedNode(2);
-        head.next.next = new LinkedNode(3);
-        head.next.next.next = new LinkedNode(4);
-        head.next.next.next.next = new LinkedNode(5);
-        head.next.next.next.next.next = new LinkedNode(6);
-        head.next.next.next.next.next.next = new LinkedNode(7);
-        head.next.next.next.next.next.next.next = new LinkedNode(8);
-        head.next.next.next.next.next.next.next.next = new LinkedNode(9);
-        head.next.next.next.next.next.next.next.next.next = new LinkedNode(10);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        LinkedNode head = LinkedListUtil.getLinkedList(arr);
 
         // Print the original linked list
         System.out.println("Original Linked List: " + head);
 
         // Reverse the linked list
-        head = kReverse(head, 4);
+        head = kReverse(head, 3);
 
         // Print the reversed linked list
         System.out.println("Reversed Linked List: " + head);

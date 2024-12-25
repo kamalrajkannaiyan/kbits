@@ -7,11 +7,60 @@ public class G10RottenOranges {
     public static void main(String[] args)
     {
         int[][] graph = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
-        int duration = durationToRotten(graph);
+        int duration = durationToRottenNew(graph);
         System.out.println("Duration " + duration);
     }
 
-    private static int durationToRotten(int[][] grid)
+
+    private static int durationToRottenNew(int[][] grid)
+    {
+        int ROWS = grid.length;
+        int COLS = grid[0].length;
+        int rottenOragnes = 0, totalOranges = 0, durtion = 0;
+        Queue<int[]> queue = new LinkedList<>();
+        // Find all rotten oranges
+        for(int row = 0; row < ROWS; row++)
+        {
+            for(int col = 0; col < COLS ; col++)
+            {
+                if(grid[row][col] == 2)
+                {
+                    queue.offer(new int[]{row, col, 0});
+                }
+                if(grid[row][col] != 0)
+                    totalOranges++;
+            }
+        }
+
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+        while (!queue.isEmpty())
+        {
+            int size = queue.size();
+            while(size-- > 0)
+            {
+                int[] curr = queue.poll();
+                rottenOragnes++;
+                for (int[] dir : dirs) {
+                    int newRow = curr[0] + dir[0];
+                    int newCol = curr[1] + dir[1];
+                    if (newRow >= 0 && newRow < ROWS && newCol >= 0 && newCol < COLS
+                            && grid[newRow][newCol] == 1) {
+                        grid[newRow][newCol] = 2;
+                        queue.offer(new int[]{newRow, newCol, curr[2] + 1});
+                    }
+                }
+            }
+
+            if(!queue.isEmpty())
+                durtion++;
+        }
+        if(rottenOragnes == totalOranges)
+            return durtion;
+        return -1;
+    }
+
+    private static int durationToRotten_old(int[][] grid)
     {
         if (grid == null || grid.length == 0) return -1;
         int duration = 0, totalOranges = 0, rottenOranges = 0;

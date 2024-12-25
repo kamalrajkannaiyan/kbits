@@ -15,6 +15,29 @@ public class ReverseStack {
     }
     static Stack<Integer> reverse(Stack<Integer> stack)
     {
+        if(!stack.isEmpty())
+        {
+            Integer top = stack.pop();
+            reverse(stack);
+            insertAtBottom(stack, top);
+        }
+        return stack;
+    }
+    static void insertAtBottom(Stack<Integer> stack, Integer data)
+    {
+        if(!stack.isEmpty())
+        {
+            Integer top = stack.pop();
+            insertAtBottom(stack, data);
+            stack.push(top);
+        }
+        else
+        {
+            stack.push(data);
+        }
+    }
+    static Stack<Integer> reverseBug(Stack<Integer> stack)
+    {
         Stack<Integer> tmp = new Stack<>();
         while (!stack.isEmpty())
         {
