@@ -1,13 +1,13 @@
 package org.kml.linkedlist;
 
 public class ReverseKGroupOnly {
-    private LinkedNode reverse(LinkedNode head)
+    private ListNode reverse(ListNode head)
     {
-        LinkedNode curr = head;
-        LinkedNode prev = null;
+        ListNode curr = head;
+        ListNode prev = null;
         while (curr != null)
         {
-            LinkedNode next = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
 
             prev = curr;
@@ -16,9 +16,9 @@ public class ReverseKGroupOnly {
         return prev;
     }
 
-    private LinkedNode getKthNode(LinkedNode head, int K)
+    private ListNode getKthNode(ListNode head, int K)
     {
-        LinkedNode curr = head;
+        ListNode curr = head;
         while (K-- > 1 && curr != null)
         {
             curr = curr.next;
@@ -26,13 +26,13 @@ public class ReverseKGroupOnly {
         return curr;
     }
 
-    private LinkedNode reverseKGroupOnly(LinkedNode head, int K)
+    private ListNode reverseKGroupOnly(ListNode head, int K)
     {
-        LinkedNode curr = head;
-        LinkedNode prevBlockLast = null, newHead = null;
+        ListNode curr = head;
+        ListNode prevBlockLast = null, newHead = null;
         while (curr != null)
         {
-            LinkedNode kthNode = getKthNode(curr, K);
+            ListNode kthNode = getKthNode(curr, K);
             if(kthNode == null)
             {
                 if (prevBlockLast != null)
@@ -41,7 +41,7 @@ public class ReverseKGroupOnly {
                 }
                 break;
             }
-            LinkedNode nextBlockHead = kthNode.next;
+            ListNode nextBlockHead = kthNode.next;
             kthNode.next = null;
             reverse(curr);
             if (newHead == null)

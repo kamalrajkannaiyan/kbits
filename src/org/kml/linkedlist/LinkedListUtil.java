@@ -1,13 +1,13 @@
 package org.kml.linkedlist;
 
 public class LinkedListUtil {
-    public static LinkedNode getLinkedList(int[] arr)
+    public static ListNode getLinkedList(int[] arr)
     {
-        LinkedNode preHead = new LinkedNode(-1);
-        LinkedNode curr = preHead;
+        ListNode preHead = new ListNode(-1);
+        ListNode curr = preHead;
         for(int idx = 0; idx < arr.length; idx++)
         {
-            LinkedNode tmp = new LinkedNode(arr[idx]);
+            ListNode tmp = new ListNode(arr[idx]);
             curr.next = tmp;
             curr = curr.next;
         }
@@ -16,7 +16,7 @@ public class LinkedListUtil {
 
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};
-        LinkedNode head = getLinkedList(arr);
+        ListNode head = getLinkedList(arr);
         System.out.println(head);
     }
 }

@@ -4,16 +4,16 @@ public class ReverseKGroup
 {
 
     // Function to reverse a linked list using the 3-pointer approach
-    static LinkedNode reverseLinkedList(LinkedNode head) {
+    static ListNode reverseLinkedList(ListNode head) {
         // Initialize 'temp' at head of linked list
-        LinkedNode curr = head;
+        ListNode curr = head;
         // Initialize pointer 'prev' to NULL, representing the previous node
-        LinkedNode prev = null;
+        ListNode prev = null;
 
         // Traverse the list, continue till 'temp' reaches the end (NULL)
         while(curr != null){
             // Store the next node in 'front' to preserve the reference
-            LinkedNode next = curr.next;
+            ListNode next = curr.next;
 
             // Reverse the direction of the current node's 'next' pointer to point to 'prev'
             curr.next = prev;
@@ -31,7 +31,7 @@ public class ReverseKGroup
 
     // Function to get the Kth node from
     // a given position in the linked list
-    static LinkedNode getKthNode(LinkedNode temp, int k) {
+    static ListNode getKthNode(ListNode temp, int k) {
         // Decrement K as we already
         // start from the 1st node
         k -= 1;
@@ -51,17 +51,17 @@ public class ReverseKGroup
     }
 
     // Function to reverse nodes in groups of K
-    static LinkedNode kReverse(LinkedNode head, int k) {
+    static ListNode kReverse(ListNode head, int k) {
         // Initialize a temporary node to traverse the list
-        LinkedNode curr = head;
+        ListNode curr = head;
 
         // Initialize a pointer to track the last node of the previous group
-        LinkedNode prevLast = null;
+        ListNode prevLast = null;
 
         // Traverse through the linked list
         while (curr != null) {
             // Get the Kth node of the current group
-            LinkedNode kThNode = getKthNode(curr, k);
+            ListNode kThNode = getKthNode(curr, k);
 
             // If the Kth node is NULL (not a complete group)
             if (kThNode == null) {
@@ -75,7 +75,7 @@ public class ReverseKGroup
             }
 
             // Store the next node after the Kth node
-            LinkedNode nextBlockNode = kThNode.next;
+            ListNode nextBlockNode = kThNode.next;
 
             // Disconnect the Kth node to prepare for reversal
             kThNode.next = null;
@@ -107,10 +107,10 @@ public class ReverseKGroup
     }
 
     // Function to print the linked list
-    static void printLinkedList(LinkedNode head) {
-        LinkedNode temp = head;
+    static void printLinkedList(ListNode head) {
+        ListNode temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " ");
+            System.out.print(temp.val + " ");
             temp = temp.next;
         }
         System.out.println();
@@ -119,16 +119,16 @@ public class ReverseKGroup
     public static void main(String[] args) {
         // Create a linked list with
         // values 5, 4, 3, 7, 9 and 2
-        LinkedNode head = new LinkedNode(1);
-        head.next = new LinkedNode(2);
-        head.next.next = new LinkedNode(3);
-        head.next.next.next = new LinkedNode(4);
-        head.next.next.next.next = new LinkedNode(5);
-        head.next.next.next.next.next = new LinkedNode(6);
-        head.next.next.next.next.next.next = new LinkedNode(7);
-        head.next.next.next.next.next.next.next = new LinkedNode(8);
-        head.next.next.next.next.next.next.next.next = new LinkedNode(9);
-        head.next.next.next.next.next.next.next.next.next = new LinkedNode(10);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(6);
+        head.next.next.next.next.next.next = new ListNode(7);
+        head.next.next.next.next.next.next.next = new ListNode(8);
+        head.next.next.next.next.next.next.next.next = new ListNode(9);
+        head.next.next.next.next.next.next.next.next.next = new ListNode(10);
 
         // Print the original linked list
         System.out.print("Original Linked List: ");

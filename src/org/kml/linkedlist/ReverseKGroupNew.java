@@ -4,17 +4,17 @@ package org.kml.linkedlist;
 // node in a linked list
 public class ReverseKGroupNew
 {
-    static LinkedNode kReverse(LinkedNode head, int k) {
-        LinkedNode curr = head;
-        LinkedNode newHead = null, prevBlockTail = null;
+    static ListNode kReverse(ListNode head, int k) {
+        ListNode curr = head;
+        ListNode newHead = null, prevBlockTail = null;
         while (curr != null)
         {
-            LinkedNode currBlockTail = curr;
-            LinkedNode prev = null;
+            ListNode currBlockTail = curr;
+            ListNode prev = null;
             int counter = 0;
             while (counter < k && curr != null)
             {
-                LinkedNode next = curr.next;
+                ListNode next = curr.next;
                 curr.next = prev;
 
                 prev = curr;
@@ -35,10 +35,10 @@ public class ReverseKGroupNew
     }
 
     // Function to print the linked list
-    static void printLinkedList(LinkedNode head) {
-        LinkedNode temp = head;
+    static void printLinkedList(ListNode head) {
+        ListNode temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " ");
+            System.out.print(temp.val + " ");
             temp = temp.next;
         }
         System.out.println();
@@ -48,7 +48,7 @@ public class ReverseKGroupNew
         // Create a linked list with
         // values 5, 4, 3, 7, 9 and 2
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-        LinkedNode head = LinkedListUtil.getLinkedList(arr);
+        ListNode head = LinkedListUtil.getLinkedList(arr);
 
         // Print the original linked list
         System.out.println("Original Linked List: " + head);

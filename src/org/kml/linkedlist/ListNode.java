@@ -1,28 +1,29 @@
 package org.kml.linkedlist;
 
-public class LinkedNode {
+public class ListNode {
     // Data stored in the node
-    int data;
+    int val;
     // Pointer to the next
     // node in the list
-    LinkedNode next;
+    ListNode next;
+    ListNode child;
 
     // Constructor with both data
     // and next node as parameters
-    LinkedNode(int data, LinkedNode next) {
-        this.data = data;
+    ListNode(int val, ListNode next) {
+        this.val = val;
         this.next = next;
     }
 
     // Constructor with only data as
     // a parameter, sets next to null
-    LinkedNode(int data) {
-        this.data = data;
+    ListNode(int val) {
+        this.val = val;
         this.next = null;
     }
     @Override
     public String toString()
     {
-        return data + ((this.next == null) ? "" : ", " + this.next);
+        return val + ((this.next == null) ? "" : ", " + this.next);
     }
 }

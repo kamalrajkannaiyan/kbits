@@ -1,25 +1,21 @@
 package org.kml.stack;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Stack;
 
 public class NextGreaterElements {
 
-    public static int[] nextGreaterElements(int[] arr)
-    {
+    public static int[] nextGreaterElements(int[] arr) {
         int[] nge = new int[arr.length];
-        Stack<Integer> minStack = new Stack<>();
-        for (int idx = arr.length - 1; idx >= 0 ; idx--) {
-            while (!minStack.isEmpty() && minStack.peek() <= arr[idx])
-            {
+        ArrayDeque<Integer> minStack = new ArrayDeque<>();
+        for (int idx = arr.length - 1; idx >= 0; idx--) {
+            while (!minStack.isEmpty() && minStack.peek() <= arr[idx]) {
                 minStack.pop();
             }
-            if(minStack.isEmpty())
-            {
+            if (minStack.isEmpty()) {
                 nge[idx] = -1;
-            }
-            else
-            {
+            } else {
                 nge[idx] = minStack.peek();
             }
             minStack.push(arr[idx]);
@@ -27,22 +23,16 @@ public class NextGreaterElements {
         return nge;
     }
 
-    private static int[] findPreviousGreaterElement(int[] height)
-    {
+    private static int[] findPreviousGreaterElement(int[] height) {
         int[] pge = new int[height.length];
         Stack<Integer> minStack = new Stack<>();
-        for(int idx = 0; idx < height.length; idx++)
-        {
-            while(!minStack.isEmpty() && minStack.peek() <= height[idx])
-            {
+        for (int idx = 0; idx < height.length; idx++) {
+            while (!minStack.isEmpty() && minStack.peek() <= height[idx]) {
                 minStack.pop();
             }
-            if(minStack.isEmpty())
-            {
+            if (minStack.isEmpty()) {
                 pge[idx] = -1;
-            }
-            else
-            {
+            } else {
                 pge[idx] = minStack.peek();
             }
             minStack.push(height[idx]);
@@ -61,12 +51,10 @@ public class NextGreaterElements {
 
         int total = 0;
         int[] trapped = new int[nums.length];
-        for(int idx = 0; idx < nums.length; idx++)
-        {
+        for (int idx = 0; idx < nums.length; idx++) {
             int trappedWater = Math.min(nge[idx], pge[idx]) - nums[idx];
             //System.out.println(nums[idx] + "--"+ nge[idx] + "--"+pge[idx] + "--"+trappedWater);
-            if(trappedWater > 0)
-            {
+            if (trappedWater > 0) {
                 total += trappedWater;
                 trapped[idx] = trappedWater;
             }

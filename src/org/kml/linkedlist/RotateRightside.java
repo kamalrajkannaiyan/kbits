@@ -1,9 +1,9 @@
 package org.kml.linkedlist;
 
 public class RotateRightside {
-    public static LinkedNode rotateRight(LinkedNode head, int k) {
+    public static ListNode rotateRight(ListNode head, int k) {
         if(head == null || head.next == null) return head;
-        LinkedNode curr = head;
+        ListNode curr = head;
         int len = 1;
         while(curr.next != null)
         {
@@ -18,7 +18,7 @@ public class RotateRightside {
         {
             curr = curr.next;
         }
-        LinkedNode newHead = curr;
+        ListNode newHead = curr;
         curr = newHead;
         for(int idx = 1; idx < len; idx++)
         {
@@ -30,9 +30,9 @@ public class RotateRightside {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        LinkedNode node = LinkedListUtil.getLinkedList(arr);
+        ListNode node = LinkedListUtil.getLinkedList(arr);
         System.out.println(node);
-        LinkedNode rotateNode = rotateRight(node, 2);
+        ListNode rotateNode = rotateRight(node, 2);
         System.out.println(rotateNode);
     }
 }
